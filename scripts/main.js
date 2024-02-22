@@ -5,29 +5,30 @@ for (const btn of allBtn) {
         const seatNo = event.target.innerText;
 
         const selected = document.getElementById("selected");
-        
+
         // disable
-        event.target.setAttribute("disabled", false);
         
+        event.target.setAttribute("disabled", false);
+
 
 
         // warning
         const limitation = getConvertedValue("selected-counter");
-        if(limitation + 1 > 4){
+        if (limitation + 1 > 4) {
             alert("You can't select more seats due to policy");
             return;
         }
         
         // coloring
-        event.target.style.backgroundColor = "blue";
-        event.target.classList.add("bg-[#1DD100]");
+        event.target.style.backgroundColor = "#1DD100";
+        event.target.style.color = "white";
 
 
 
         // selected seat no
         const selectedCounter = getConvertedValue("selected-counter");
         document.getElementById("selected-counter").innerText = selectedCounter + 1;
-        
+
         // seat left
         const seatLeft = getConvertedValue("seat-left");
         document.getElementById("seat-left").innerText = seatLeft - 1;
@@ -74,16 +75,16 @@ function updateGrandTotal(status) {
     else {
         const couponCode = document.getElementById("coupon").value;
 
-        if(couponCode == "couple20"){
-            const discount = totalPrice*0.2;
+        if (couponCode == "couple20") {
+            const discount = totalPrice * 0.2;
             document.getElementById("grandtotal").innerText = totalPrice - discount;
-            
+
         }
-        else if(couponCode == "new15"){
-            const discount = totalPrice*0.15;
+        else if (couponCode == "new15") {
+            const discount = totalPrice * 0.15;
             document.getElementById("grandtotal").innerText = totalPrice - discount;
         }
-        else{
+        else {
             alert("Please Enter Valid Coupon")
         }
     }
@@ -97,23 +98,7 @@ function getConvertedValue(id) {
 }
 
 
-// const seatLeft = getConvertedValue("seat-left");
-// const selectedCounter = getConvertedValue("selected-counter");
-
-
-
-
-// function totalCost(value){
-//     const totalPrice = getConvertedValue("total");
-//     const convertPrice = parseInt(price);
-//     const sum = totalPrice + convertPrice;
-//     document.getElementById("total").innerText = sum;
-// }
-
-
-// function getConvertedValue(id){
-//     const price = document.getElementById(id).innerText;
-//     const convertPrice = parseInt(price);
-//     return convertPrice;
-// }
-
+function scrollToDown() {
+    const downElement = document.getElementById('ticket');
+    downElement.scrollIntoView({ behavior: 'smooth' });
+  }
