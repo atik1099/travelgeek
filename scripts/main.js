@@ -96,9 +96,3 @@ function getConvertedValue(id) {
     const convertPrice = parseInt(priceElement);
     return convertPrice;
 }
-
-
-function scrollToDown() {
-    const downElement = document.getElementById('ticket');
-    downElement.scrollIntoView({ behavior: 'smooth' });
-  }
